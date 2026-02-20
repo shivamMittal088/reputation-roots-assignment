@@ -2,11 +2,26 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ShoppingBag, User, LogOut } from 'lucide-react';
 import { useAuth } from '../state/useAuth';
 import SearchBar from './SearchBar';
+import { useState, useEffect } from 'react';
 
 function Header() {
   const { user, token, logout, setFavorites } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
 
   const onLogout = () => {
     logout();
@@ -33,6 +48,15 @@ function Header() {
                 <User className="h-3.5 w-3.5" />
                 {user?.name}
               </span>
+              <div className="flex items-center gap-1.5" title={isOnline ? 'Online' : 'Offline'}>
+                <span className="relative flex h-2.5 w-2.5">
+                  {isOnline && (
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+                  )}
+                  <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${isOnline ? 'bg-green-500' : 'bg-red-500'} shadow-sm`}></span>
+                </span>
+                <span className="text-xs font-medium text-slate-600">{isOnline ? 'Online' : 'Offline'}</span>
+              </div>
               <button
                 onClick={onLogout}
                 className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-800"
