@@ -88,8 +88,8 @@ Create `.env` in `backend/`:
 
 ```env
 PORT=5002
-MONGODB_URI=mongodb://localhost:27017/micro-marketplace
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+MONGODB_URI=<your-mongoDB url -here>
+JWT_SECRET=your-<your-secret-here>
 JWT_EXPIRES_IN=7d
 NODE_ENV=development
 ```
