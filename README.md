@@ -4,6 +4,11 @@
 
 ### Discover premium products. Build your collection. Share your favorites.
 
+### 🌐 [Live Demo](https://reputation-roots-assignment-5nsq-cj4cjjm9a.vercel.app)
+
+[![Frontend](https://img.shields.io/badge/Frontend-Live-success?logo=vercel)](https://reputation-roots-assignment-5nsq-cj4cjjm9a.vercel.app)
+[![Backend](https://img.shields.io/badge/Backend-Live-success?logo=vercel)](https://reputation-roots-assignment-gxy8a71a0.vercel.app)
+
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4-111111?logo=express&logoColor=white)](https://expressjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
