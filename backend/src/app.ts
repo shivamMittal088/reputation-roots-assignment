@@ -11,12 +11,26 @@ const errorHandler = require('./middleware/errorHandler');
 const app = express();
 
 app.use(cors({
-  origin: [
-    'https://reputation-roots-assignment-5nsq-cj4cjjm9a.vercel.app',
-    'http://localhost:5174',
-    'http://localhost:5173'
-  ],
-  credentials: true
+  origin: function(origin, callback) {
+    const allowedOrigins = [
+      'https://reputation-roots-assignment-5nsq-cj4cjjm9a.vercel.app',
+      'http://localhost:5174',
+      'http://localhost:5173'
+    ];
+    
+    // Allow requests with no origin (mobile apps, Postman, etc)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log('CORS blocked origin:', origin);
+      callback(null, false);
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(morgan('dev'));
