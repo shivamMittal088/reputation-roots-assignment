@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Micro Marketplace",
+    "slug": "micro-marketplace",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.example.micromarketplace"
+    }
+  }
+}

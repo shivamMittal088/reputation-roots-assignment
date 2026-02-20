@@ -1,0 +1,9 @@
+{
+  "name": "reputation-roots-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "lint:all": "npm --prefix backend run lint && npm --prefix web run lint && npm --prefix mobile run lint",
+    "typecheck:all": "npm --prefix backend run typecheck && npm --prefix web run typecheck && npm --prefix mobile run typecheck"
+  }
+}
