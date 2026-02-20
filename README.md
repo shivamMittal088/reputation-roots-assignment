@@ -7,7 +7,7 @@
 ### 🌐 [Live Demo](https://reputation-roots-assignment-5nsq-henjxe7ie.vercel.app)
 
 [![Frontend](https://img.shields.io/badge/Frontend-Live-success?logo=vercel)](https://reputation-roots-assignment-5nsq-henjxe7ie.vercel.app)
-[![Backend](https://img.shields.io/badge/Backend-Live-success?logo=vercel)](https://reputation-roots-assignment-iufqb7srs.vercel.app)
+[![Backend](https://img.shields.io/badge/Backend-Live-success?logo=vercel)](https://reputation-roots-assignment-osl9une1d.vercel.app)
 
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-4-111111?logo=express&logoColor=white)](https://expressjs.com/)
