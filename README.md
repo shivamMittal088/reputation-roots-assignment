@@ -172,13 +172,10 @@ After seeding, use these accounts:
     </tr>
   </thead>
   <tbody>
-    <tr><td><code>GET</code></td><td><code>/products</code></td><td>List products with pagination & search</td></tr>
+    <tr><td><code>GET</code></td><td><code>/products</code></td><td>List products with pagination & search (query: page, limit, q)</td></tr>
     <tr><td><code>GET</code></td><td><code>/products/:id</code></td><td>Get single product details</td></tr>
-    <tr><td><code>POST</code></td><td><code>/products</code></td><td>Create new product (auth required)</td></tr>
-    <tr><td><code>PUT</code></td><td><code>/products/:id</code></td><td>Update product (auth required)</td></tr>
-    <tr><td><code>DELETE</code></td><td><code>/products/:id</code></td><td>Delete product (auth required)</td></tr>
-    <tr><td><code>GET</code></td><td><code>/products/mine/favorites</code></td><td>Get user's favorite products</td></tr>
-    <tr><td><code>GET</code></td><td><code>/products/favorites</code></td><td>Get favorites (alternative route)</td></tr>
+    <tr><td><code>GET</code></td><td><code>/products/mine/favorites</code></td><td>Get user's favorite products (primary)</td></tr>
+    <tr><td><code>GET</code></td><td><code>/products/favorites</code></td><td>Get favorites (fallback route)</td></tr>
     <tr><td><code>POST</code></td><td><code>/products/:id/favorite</code></td><td>Add product to favorites</td></tr>
     <tr><td><code>DELETE</code></td><td><code>/products/:id/favorite</code></td><td>Remove product from favorites</td></tr>
     <tr><td><code>DELETE</code></td><td><code>/products/favorites</code></td><td>Clear all favorites</td></tr>
