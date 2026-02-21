@@ -35,9 +35,6 @@ app.use(cors({
   optionsSuccessStatus: 204
 }));
 
-// Handle preflight OPTIONS requests
-app.options('*', cors());
-
 app.use(express.json());
 app.use(morgan('dev'));
 
