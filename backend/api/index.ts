@@ -9,7 +9,8 @@ module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization,X-Requested-With');
 
   if (req.method === 'OPTIONS') {
-    return res.status(204).end();
+    res.statusCode = 204;
+    return res.end();
   }
 
   try {
@@ -24,6 +25,8 @@ module.exports = async (req, res) => {
     return app(req, res);
   } catch (error) {
     console.error('Function invocation failed', error);
-    return res.status(500).json({ message: 'Internal server error' });
+    res.statusCode = 500;
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    return res.end(JSON.stringify({ message: 'Internal server error' }));
   }
 };
