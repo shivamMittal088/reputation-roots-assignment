@@ -124,6 +124,10 @@ Create `.env` in `web/`:
 
 ```env
 VITE_API_URL=http://localhost:5002
+
+For production web builds, use:
+
+VITE_API_URL=https://reputation-roots-assignment.vercel.app
 ```
 
 **Start Frontend:**
