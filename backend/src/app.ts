@@ -13,7 +13,7 @@ const app = express();
 app.use(cors({
   origin: function(origin, callback) {
     const allowedOrigins = [
-      'https://reputation-roots-assignment-5nsq-henjxe7ie.vercel.app',
+      'https://reputation-roots-assignment-5nsq.vercel.app',
       'http://localhost:5174',
       'http://localhost:5173'
     ];
