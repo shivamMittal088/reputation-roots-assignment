@@ -4,6 +4,10 @@ const { jwtSecret } = require('../config/env');
 
 async function auth(req, res, next) {
   try {
+    if (req.method === 'OPTIONS') {
+      return next();
+    }
+
     const authHeader = req.headers.authorization || '';
     const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null;
 

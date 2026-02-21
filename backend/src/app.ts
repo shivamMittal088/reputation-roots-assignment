@@ -10,59 +10,23 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
-/* ==============================
-   CORS CONFIGURATION
-============================== */
+const corsOptions = {
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  optionsSuccessStatus: 204,
+  maxAge: 86400
+};
 
-const allowedOrigins = [
-  'https://reputation-roots-assignment-5nsq.vercel.app',
-  'http://localhost:5173',
-  'http://localhost:5174'
-];
+app.use(cors(corsOptions));
+app.use((req, res, next) => {
+   if (req.method === 'OPTIONS') {
+      return cors(corsOptions)(req, res, () => res.sendStatus(204));
+   }
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Allow Postman / mobile apps (no origin)
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        console.log('❌ CORS blocked origin:', origin);
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  })
-);
-
-/* ==============================
-   HANDLE PREFLIGHT REQUESTS
-   (Fix 401 on OPTIONS)
-============================== */
-
-app.options('*', cors()); // 👈 VERY IMPORTANT
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-
-      // Allow any Vercel deployment
-      if (
-        origin.includes('vercel.app') ||
-        allowedOrigins.includes(origin)
-      ) {
-        return callback(null, true);
-      }
-
-      callback(new Error('Not allowed by CORS'));
-    },
-    credentials: true,
-  })
-);
+   return next();
+});
 /* ==============================
    MIDDLEWARE
 ============================== */
