@@ -45,7 +45,24 @@ app.use(
 ============================== */
 
 app.options('*', cors()); // 👈 VERY IMPORTANT
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
 
+      // Allow any Vercel deployment
+      if (
+        origin.includes('vercel.app') ||
+        allowedOrigins.includes(origin)
+      ) {
+        return callback(null, true);
+      }
+
+      callback(new Error('Not allowed by CORS'));
+    },
+    credentials: true,
+  })
+);
 /* ==============================
    MIDDLEWARE
 ============================== */
